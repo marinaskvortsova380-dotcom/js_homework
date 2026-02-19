@@ -11,33 +11,35 @@ services.price = function () {
     let sum = 0;
     for (let key in this) {
         if (typeof this[key] === "string") {
-            sum += parseInt(this[key]);
+            sum += parseFloat(this[key]);
         }
     }
     return sum;
 };
-console.log(services.price());
+console.log("sum:", services.price().toFixed(2));
+// изменила тут
 
 services.minPrice = function () {
     let prices = [];
 
     for (let key in this) {
         if (typeof this[key] === "string") {
-            prices.push(parseInt (this[key]));
+            prices.push(parseFloat (this[key]));
         }
     }
     return Math.min(...prices);
 }
-console.log("min:", services.minPrice());
+console.log("min:", services.minPrice.toFixed(2));
 
 services.maxPrice = function () {
     let prices = [];
 
     for (let key in this) {
         if (typeof this[key] ==="string") {
-            prices.push(parseInt (this[key]));
+            prices.push(parseFloat (this[key]));
         }
     }
     return Math.max(...prices);
 }
-console.log("max:", services.maxPrice());
+console.log("max:", services.maxPrice.toFixed(2));
+// изменила на parseFloat
