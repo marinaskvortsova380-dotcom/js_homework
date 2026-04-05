@@ -1,0 +1,447 @@
+{
+  "info": {
+    "_postman_id": "0f95667c-97aa-4898-847c-c726c4205da2",
+    "name": "DZSOAPAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50416548"
+  },
+  "item": [
+    {
+      "name": "get book_MarinaSkvortsova",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "http://webservices.daehosting.com/services/isbnservice.wso",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <IsValidISBN13 xmlns=\"http://webservices.daehosting.com/ISBN\">\r\n      <sISBN>string</sISBN>\r\n    </IsValidISBN13>\r\n  </soap:Body>\r\n</soap:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://webservices.daehosting.com/services/isbnservice.wso",
+          "protocol": "http",
+          "host": [
+            "webservices",
+            "daehosting",
+            "com"
+          ],
+          "path": [
+            "services",
+            "isbnservice.wso"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Valid_MS",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Response time is less than 200ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Content-Type is present\", function () {\r",
+              "    pm.response.to.have.header(\"Content-Type\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Body matches string\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response is not empty\", function () {\r",
+              "    pm.expect(pm.response.text()).to.not.be.empty;\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "http://webservices.daehosting.com/services/isbnservice.wso?op=IsValidISBN10",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <IsValidISBN10 xmlns=\"http://webservices.daehosting.com/ISBN\">\r\n      <sISBN>string</sISBN>\r\n    </IsValidISBN10>\r\n  </soap:Body>\r\n</soap:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://webservices.daehosting.com/services/isbnservice.wso",
+          "protocol": "http",
+          "host": [
+            "webservices",
+            "daehosting",
+            "com"
+          ],
+          "path": [
+            "services",
+            "isbnservice.wso"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DifferentType_MS",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Response time is less than 200ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Кesponse contains false\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"false\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Content-Type is present\", function () {\r",
+              "    pm.response.to.have.header(\"Content-Type\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Body matches string\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response is not empty\", function () {\r",
+              "    pm.expect(pm.response.text()).to.not.be.empty;\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "http://webservices.daehosting.com/services/isbnservice.wso?op=IsValidISBN10",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <IsValidISBN10 xmlns=\"http://webservices.daehosting.com/ISBN\">\r\n      <sISBN>Маринка***2504</sISBN>\r\n    </IsValidISBN10>\r\n  </soap:Body>\r\n</soap:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://webservices.daehosting.com/services/isbnservice.wso",
+          "protocol": "http",
+          "host": [
+            "webservices",
+            "daehosting",
+            "com"
+          ],
+          "path": [
+            "services",
+            "isbnservice.wso"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "NoTag_MS",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Response time is less than 200ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"response contains false or error \", function () {\r",
+              "    pm.expect(pm.response.text().toLowerCase()).to.include(\"false\")\r",
+              "    || pm.expect(pm.response.text().toLowerCase()).to.include(\"error\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Content-Type is present\", function () {\r",
+              "    pm.response.to.have.header(\"Content-Type\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Body matches string\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response is not empty\", function () {\r",
+              "    pm.expect(pm.response.text()).to.not.be.empty;\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "http://webservices.daehosting.com/services/isbnservice.wso?op=IsValidISBN10",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <IsValidISBN10 xmlns=\"http://webservices.daehosting.com/ISBN\">\r\n    </IsValidISBN10>\r\n  </soap:Body>\r\n</soap:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://webservices.daehosting.com/services/isbnservice.wso",
+          "protocol": "http",
+          "host": [
+            "webservices",
+            "daehosting",
+            "com"
+          ],
+          "path": [
+            "services",
+            "isbnservice.wso"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "EmptyField_MS",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Response time is less than 200ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Content-Type is present\", function () {\r",
+              "    pm.response.to.have.header(\"Content-Type\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Body matches string\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response is not empty\", function () {\r",
+              "    pm.expect(pm.response.text()).to.not.be.empty;\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "http://webservices.daehosting.com/services/isbnservice.wso?op=IsValidISBN10",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <IsValidISBN10 xmlns=\"http://webservices.daehosting.com/ISBN\">\r\n      <sISBN></sISBN>\r\n    </IsValidISBN10>\r\n  </soap:Body>\r\n</soap:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://webservices.daehosting.com/services/isbnservice.wso",
+          "protocol": "http",
+          "host": [
+            "webservices",
+            "daehosting",
+            "com"
+          ],
+          "path": [
+            "services",
+            "isbnservice.wso"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "InValid_MS",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response is not  empty\", function () {\r",
+              "    pm.expect(pm.response.text()).to.not.be.empty;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"ISBN10 is invalid\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"IsValidISBN10Result>false</IsValidISBN10Result>\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "http://webservices.daehosting.com/services/isbnservice.wso?op=IsValidISBN10",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <IsValidISBN10 xmlns=\"http://webservices.daehosting.com/ISBN\">\r\n      <sISBN>string</sISBN>\r\n    </IsValidISBN10>\r\n  </soap:Body>\r\n</soap:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://webservices.daehosting.com/services/isbnservice.wso",
+          "protocol": "http",
+          "host": [
+            "webservices",
+            "daehosting",
+            "com"
+          ],
+          "path": [
+            "services",
+            "isbnservice.wso"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
