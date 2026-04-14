@@ -16,7 +16,7 @@
 		},
 		{
 			"key": "baseUrl",
-			"value": "",
+			"value": "https://qauto.forstudy.space/api",
 			"type": "default",
 			"enabled": true
 		},
